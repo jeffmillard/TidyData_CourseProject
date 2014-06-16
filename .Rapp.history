@@ -1,0 +1,250 @@
+names(vect2) <- c("foo", "bar", "norf")
+identical(vect, vect2)
+vect["bar"]
+vect[c("foo", "bar")]
+swirl()
+library(swirl)
+swirl()
+myVector <- 1:20
+myVector
+dim(myVector)
+length(myVector)
+dim(myVector) <- c(4,5)
+dim(myVector)
+attributes(myVector)
+myVector
+class(myVector)
+myMatrix <- myVector
+?matrix
+myMatrix2 <- matrix(c(1:20), nrow=4, ncol=3)
+myMatrix2 <- matrix(c(1:20), nrow=4, ncol=5)
+identical(myMatrix, myMatrix2)
+patients <- c(Bill, Gina, Kelly, Sean)
+patients <- c("Bill", "Gina", "Kelly", "Sean")
+cbind(patients, MyMatrix)
+?cbind
+myMatrix
+cbind(patients, myMatrix)
+myData <- data.frame(patients, myMatrix)
+myData
+class(myData)
+cnames <- c("patient", "age", "weight", "bp", "rating", "test")
+colnames(myData) <-cnames
+myData
+pwd
+cwd
+getwd()
+x <- 4
+class(x)
+x <- c(4, "a", TRUE)
+class(x)
+x <- c(1,3, 5)
+y <- c(3, 2, 10)
+cbind(x, y)
+x <- list(2, "a", "b", TRUE)
+class(x)
+class(x[[2]])
+x[[2]]
+x <- 1:4
+y <- 2
+x+y
+x <- c(17, 14, 4, 5, 13, 12, 10)
+x[x > 10] <- 4
+x
+read.csv(hw1_data.csv)
+getwd()
+?read.csv
+myBitchinFile <- read.csv(hw1_data.csv)
+myBitchinFile <- read.csv("hw1_data.csv")
+myBitchinFile
+?readLines
+read.table(file = "hw1_data.csv", nrows=3)
+read.table("hw1_data.csv")
+read.csv("hw1_data.csv")
+read.csv("hw1_data.csv", ncols=3)
+read.csv("hw1_data.csv", nrows=3)
+read.csv("hw1_data.csv", nrows=2)
+?count
+dim(myBitchinData)
+dim(myBitchinFile)
+dim(read.csv("hw1_data.csv"))
+myBitchinData[152,153]
+yBitchinFile[152,153]
+myBitchinFile[152,153]
+myBitchinFile[152]
+myBitchinFile[,152:153]
+myBitchinFile[1,152]
+myBitchinFile[152:153,]
+?dim
+nrow(myBitchinFile)
+myBitchinFile[nrow(myBitchinFIle-1):nrow(myBitchinFile),]
+myBitchinFile[nrow(myBitchinFile-1):nrow(myBitchinFile),]
+myBitchinFile[nrow(myBitchinFile)-1:nrow(myBitchinFile),]
+myBitchinFile[(nrow(myBitchinFile)-1):nrow(myBitchinFile),]
+myBitchinFile[47]
+myBitchinFile[47,]
+attributes(myBitchinFile)
+is.na("Solar.R")
+missingOzone <- is.na(myBitchinFile[,"Solar.R"])
+missingOzone
+myBitchinFile[,"Solar.R"]
+myBitchinFile[missingOzone]
+notgood <- !complete.cases(myBitchinFile)
+notgood
+myBitchinFile
+myBitchinFile[notgood]
+good <- complete.cases(myBitchinFile)
+good
+notgood <- is.na(myBitchinFile[,"Ozone.R"])
+myBitchinFile[,"Ozone.R"]
+myBitchinFile[,"Ozone"]
+notgood <- is.na(myBitchinFile[,"Ozone"])
+notgood
+myBitchinFile[notgood,]
+dim(myBitchinFile[notgood,])
+good <- !is.na(myBitchinFile[,"Ozone"])
+goodOzone <- good[,"ozone"]
+> goodOzone <- good[,"Ozone"]
+goodOzone <- good[,"Ozone"]
+dim(goodOzone)
+dim(good)
+good
+goodOzone
+good[,"Ozone"]
+dim(good)
+good
+nrows(good)
+nrow(good)
+good
+nrow(myBitchinFile)
+good <- !is.na(myBitchinFile[,"Ozone"])
+nrow(good)
+good <- !is.na(myBitchinFile[,"Ozone"])
+good
+nrow(good)
+good <- list(!is.na(myBitchinFile[,"Ozone"]))
+good
+nrow(good)
+dim(good)
+realgood = myBitchinFile[good,]
+good <- !is.na(myBitchinFile[,"Ozone"])
+ealgood = myBitchinFile[good,]
+ealgood
+mean(ealgood[,"Ozone"]
+)
+realgood <- ealgood
+realgood
+ozone31 <- realgood[,"Ozone" > 31]
+ozone31
+ozone31 <- realgood[,Ozone > 31]
+ozone31 <- realgood[[,"Ozone" > 31]]
+ozone31 <- realgood[,realgood[["Ozone"]]>31,]
+realgood[1,realgood[["Ozone"]]>31]
+realgood[[1,2]]>31
+realgood[,realgood[[1,2]]>31]
+realgood[[,2]]>31]
+realgood[[1,"Ozone"]]>31]
+realgood[[1,1]]>31]
+> realgood[[[1,2]]>31]
+realgood[][[,2]]>31]
+realgood[[[,2]]>31]
+highozone <- realgood[]
+realgood
+realgood[]
+?[]
+Ozone31 <-subset(realgood, Ozone>31)
+Ozone31
+Ozone31 <-subset(realgood, Ozone>31, Temp>90)
+Ozone31
+Ozone31 <-subset(realgood, Ozone>31)
+BothTypes <-subset(realgood, Ozone>31 & Temp>90)
+BothTypes
+mean(BothTypes, "Solar.R")
+mean(BothTypes[,"Solar.R"]
+)
+June <- subset(myBitchinFile, Month == 6)
+June
+mean(June,"Temp")
+mean(June[,"Temp"])
+MayOzone <- subset(myBitchinFile, Month=5)
+MayOzone
+MayOzone <- subset(myBitchinFile, Month==5)
+MayOzone
+max(MayOzone[,"Ozone"])
+MayOzone
+MayOzone <- subset(realgood, Month==5)
+MayOzone
+max(MayOzone[,"Ozone"])
+tail(myBitchinFile,2)
+download.file(https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv)
+download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv","ACS_survey")
+download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv","ACS_survey",curl)
+download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv","ACS_survey","curl")
+tail(ACS_Survey)
+list.files()
+getwd()
+download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv","ACS_survey.csv",curl)
+if (!file.exists("datacleaning")) {}
+if (!file.exists("datacleaning")) {dir.create("datacleaning")}
+cd datacleaning
+cd ./datacleaning
+ls
+list.files()
+cd../datacleaning
+setwd(datacleaning)
+setwd("datacleaning")
+getwd()
+library(data.table)
+DT=data.table(x=rnorm(9),y=rep(c("a","b","c")), each=3,z=rnorm(9))
+setwd(../)
+setwd("../")
+getwd()
+library(data.table)
+setwd("datacleaning")
+library(data.table)
+list.files()
+download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv","ACS_survey.csv","curl")
+ACS <- read.table("ACS_survey.csv",sep=",",header="TRUE")
+ACS <- read.table("ACS_survey.csv",sep=",",header=TRUE)
+head(ACS)
+ACS <- data.table(read.table("ACS_survey.csv",sep=",",header=TRUE))
+head(ACS)
+tables()
+table(ACS$VAL)
+table(ACS$VAL==24)
+library(xlsxc)
+library(xlsx)
+install.packages("xlsx")
+library(xlsx)
+natgas <- read.xlsx("https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FDATA.gov_NGAP.xlsx", sheetIndex=1, header=TRUE)
+download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FDATA.gov_NGAP.xlsx", "natgas.xlsx",method="curl")
+natgas <- data.table(read.xlsx(natgas.xlsx))
+natgas <- data.table(read.xlsx(natgas.xlsx, sheetIndex=1, header="TRUE"))
+natgas <- data.table(read.xlsx("natgas.xlsx", sheetIndex=1, header="TRUE"))
+dat <- natgas[c(18:23),c(7,15)]
+data
+dat
+dat <- natgas[18:23,7:15]
+dta
+dat
+natgas[1:10]
+dat <- natgas[18:23][7:15]
+data
+dat
+dat <- natgas[18:23]
+dat
+sum(dat$Zip*dat$Ext,na.rm=T)
+sum(dnatgas$Zip*natgas$Ext,na.rm=T)
+sum(natgas$Zip*natgas$Ext,na.rm=T)
+class dat
+class(dat)
+dat
+head(dat)
+names(dat)
+natgas
+dim(natgas)
+dim(dat)
+dat <-natgas[18:23,7:15]
+dim(dat)
+dat <- natgas[18:23]
+sum(dat$Zip*dat$Ext,na.rm=T)

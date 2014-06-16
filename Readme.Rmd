@@ -76,24 +76,13 @@ See the documention provided with the data set for additional detail.
 		1. Remove ()- from names
 		2. Expand t and f to Time and Frequency, respectively
 		3. Expand Gyro to Gyroscope, Acc to Accelerometer
-	C. 
 
 #### Part 3: Create tidy data set of averages and save as .txt file
-	A. 
-	B. Created tidyDF.txt as tab-delimited file
+	A. Created tidyDF.txt as tab-delimited file
 
 ### Details of computing platform
-platform       x86_64-apple-darwin10.8.0   
-arch           x86_64                      
-os             darwin10.8.0                
-system         x86_64, darwin10.8.0        
-status                                     
-major          3                           
-minor          0.3                         
-year           2014                        
-month          03                          
-day            06                          
-svn rev        65126                       
-language       R                           
-version.string R version 3.0.3 (2014-03-06)
-nickname       Warm Puppy                  
+
+```{r platform_info}
+sessionInfo()
+```
+                

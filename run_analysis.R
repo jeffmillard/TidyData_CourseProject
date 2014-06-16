@@ -27,8 +27,7 @@
 #			B. Modify column names to provide appropriate column headings.
 #
 #	Part 3: Create tidy data set of averages and save as .txt file
-#			A. 
-#			B. Created tidyDF.txt as tab-delimited file
+#			A. Created tidyDF.txt as tab-delimited file
 #
 #
 ## Data Source Reference:  
@@ -54,7 +53,7 @@ run_analysis <- function() {
 	# -------------------------------------------------------------------------
 	# My working directory containg the UCI HAR Dataset is datacleaning.  This 
 	# line would need to change to match your directory structure
-	setwd("~/Tidy-Data-Course-Project/datacleaning/")
+	setwd("~/TidyData_CourseProject")
 	
 	# directory for unzipped data files
 	datadir <- "./UCI HAR Dataset"

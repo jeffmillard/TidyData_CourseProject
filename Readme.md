@@ -32,31 +32,30 @@ In the original study, data were generated or derived according to:
 
 5. Type of analysis applied to the data (excerpted from the original study documentation:
 
-	* mean():	 	Mean value
-	* std(): 		Standard deviation
-	* mad(): 		Median absolute deviation 
-	* max(): 		Largest value in array
-	* min(): 		Smallest value in array
-	* sma(): 		Signal magnitude area
-	* energy(): 	Energy measure. Sum of the squares divided by the number of values. 
-	* iqr(): 		Interquartile range 
-	* entropy(): 	Signal entropy
-	* correlation(): 	Correlation coefficient between two signals
-	* maxInds(): 	Index of the frequency component with largest magnitude
-	* meanFreq(): 	Weighted average of the frequency components to obtain a mean
-				frequency
-	* skewness(): 	skewness of the frequency domain signal 
-	* kurtosis(): 	kurtosis of the frequency domain signal 
+	* mean():	 		Mean value
+	* std(): 			Standard deviation
+	* mad(): 			Median absolute deviation 
+	* max(): 			Largest value in array
+	* min(): 			Smallest value in array
+	* sma(): 			Signal magnitude area
+	* energy(): 		Energy measure. Sum of the squares divided by the number of values. 
+	* iqr(): 			Interquartile range 
+	* entropy(): 		Signal entropy
+	* correlation(): 		Correlation coefficient between two signals
+	* maxInds(): 		Index of the frequency component with largest magnitude
+	* meanFreq(): 		Weighted average of the frequency components to obtain a mean frequency
+	* skewness(): 		Skewness of the frequency domain signal 
+	* kurtosis(): 		Kurtosis of the frequency domain signal 
 
 These analyses had more than one coefficient/result
 
-*	arCoeff(): 		Autorregresion coefficients with Burg order equal to 4 (e.g. 
-				coefficients 1-4)
-*	bandsEnergy(): 	Energy of a frequency interval within the 64 bins of the FFT 
-				of each window.
+*	arCoeff(): 			Autorregresion coefficients with Burg order equal to 4 
+					(e.g. coefficients 1-4)
+*	bandsEnergy(): 		Energy of a frequency interval within the 64 bins of
+					the FFT of each window.
 
 This analysis specified 2 arguments; the two vectors:
-*	angle(): 		Angle between two vectors.
+*	angle(): 			Angle between two vectors.
 
 See the documention provided with the data set for additional detail.
 
@@ -69,28 +68,39 @@ See the documention provided with the data set for additional detail.
 		3. Read and combine (rbind) test and train numeric data.  There are 561 columns (features) in this data.
 		4. Read the feature names from file and make these names the titles of the numeric columns.
 		
-	B. Save merged data. I have chosen to save this combined data set, even though this is not required for the assignment.
+	B. Save merged data. (I have chosen to save this combined data set, even though this is not required for the assignment.)
 
 #### Part 2: Extracts measurements of mean and SD.
-	A. Subset to only subject, activity and data columns that are mean (column name contains "mean()") or standard deviation column name contains "std()").
+	A. Subset to only subjectid, activityid and data columns that are mean (original column name contains "mean()") or standard deviation column name contains "std()").
 	B. Modify column names to provide appropriate column headings.
+		1. Remove ()- from names
+		2. Expand t and f to Time and Frequency, respectively
+		3. Expand Gyro to Gyroscope, Acc to Accelerometer
 
 #### Part 3: Create tidy data set of averages and save as .txt file
-	A. 
-	B. Created tidyDF.txt as tab-delimited file
+	A. Created tidyDF.txt as tab-delimited file
 
 ### Details of computing platform
-platform       x86_64-apple-darwin10.8.0   
-arch           x86_64                      
-os             darwin10.8.0                
-system         x86_64, darwin10.8.0        
-status                                     
-major          3                           
-minor          0.3                         
-year           2014                        
-month          03                          
-day            06                          
-svn rev        65126                       
-language       R                           
-version.string R version 3.0.3 (2014-03-06)
-nickname       Warm Puppy                  
+
+
+```r
+sessionInfo()
+```
+
+```
+## R version 3.0.3 (2014-03-06)
+## Platform: x86_64-apple-darwin10.8.0 (64-bit)
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+## [1] knitr_1.6
+## 
+## loaded via a namespace (and not attached):
+## [1] evaluate_0.5.5 formatR_0.10   stringr_0.6.2  tools_3.0.3
+```
+                

@@ -1,9 +1,6 @@
 Code Book for Tidy Dataset - Human Activity Recognition Using Smartphones
 ========================================================
-Version 1.0
-
 Jeffrey R. Millard
-
 June 2014
 
 Study Design
@@ -79,7 +76,14 @@ In selecting the data to include in the tidy data set, columns of the original d
 	Hardware-Friendly Support Vector Machine. International Workshop of 
 	Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain. Dec 2012
 
-
+List of column Names in tidy data set
 ```{r show_tidy_names}
+DF <- read.csv("tidyOut.txt", sep="\t")
+names(DF)
+```
 
+List of column names in untidy data set
+```{r show_untidy_names}
+DF <- read.csv("completeDF.txt", sep="\t")
+names(DF)
 ```
