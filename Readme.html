@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>README for Tidy Dataset - Human Activity Recognition Using Smartphones</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<h1>README for Tidy Dataset - Human Activity Recognition Using Smartphones</h1>
+
+<h3>Project Instructions</h3>
+
+<blockquote>
+<p>&ldquo;You should create one R script called run_analysis.R that does the following. </p>
+
+<p>Merges the training and the test sets to create one data set.
+   Extracts only the measurements on the mean and standard deviation for each measurement. 
+   Uses descriptive activity names to name the activities in the data set
+   Appropriately labels the data set with descriptive activity names. 
+   Creates a second, independent tidy data set with the average of each variable for each activity and each subject. &rdquo;</p>
+</blockquote>
+
+<h3>Detailed Description of Original Study Data</h3>
+
+<p>The original study had 30 test subjects, who engaged in 6 activities: Walking, Walking up stairs, Walking down stairs, Sitting, Standing, Laying.  Note, the original researchers named the 2nd and 3rd activities as &ldquo;WALKING UPSTAIRS&rdquo; and &ldquo;WALKING DOWNSTAIRS&rdquo;.  I have interpreted that as walking up or down the stairs, respectively, and not simply walking on different floors of a building.</p>
+
+<p>The subjects had Samsung Galaxy SII smartphones on their waists. 3-axial linear acceleration and 3-axial angular velocity were recorded at a constant rate of 50Hz.</p>
+
+<p>The original data set contained numerous measured and derived data based on the sensor (3D accelerometer and gyroscope) measurements.  Raw (unprocessed) data were included in the zip archive, but only the processed data were used in this analysis.</p>
+
+<p>Data were randomly divided by subject into training and testing data.  For the &ldquo;tidy data&rdquo; analysis described herein, the training and testing data were combined into a single file.</p>
+
+<p>In the original study, data were generated or derived according to:</p>
+
+<ol>
+<li><p>Type of data (time domain, frequency domain, vector angle).  Since all of the raw measurements were made in the time domain, frequency was calculated by FFT (Fast Fourier Transform) and angle was calculated by vector transformation of the 3D accelerometer and gyroscope data.</p></li>
+<li><p>Type of sensor (time and frequency domain only).  There were 2 sensor types: Accelerometer and Gyroscope.</p></li>
+<li><p>Type of acceleration (body motion or gravity).</p></li>
+<li><p>Axis of measurement (Cartesian axes X, Y, Z)</p></li>
+<li><p>Type of analysis applied to the data (excerpted from the original study documentation:</p></li>
+</ol>
+
+<pre><code>* mean():       Mean value
+* std():        Standard deviation
+* mad():        Median absolute deviation 
+* max():        Largest value in array
+* min():        Smallest value in array
+* sma():        Signal magnitude area
+* energy():     Energy measure. Sum of the squares divided by the number of values. 
+* iqr():        Interquartile range 
+* entropy():    Signal entropy
+* correlation():    Correlation coefficient between two signals
+* maxInds():    Index of the frequency component with largest magnitude
+* meanFreq():   Weighted average of the frequency components to obtain a mean
+            frequency
+* skewness():   skewness of the frequency domain signal 
+* kurtosis():   kurtosis of the frequency domain signal 
+</code></pre>
+
+<p>These analyses had more than one coefficient/result</p>
+
+<ul>
+<li>  arCoeff():      Autorregresion coefficients with Burg order equal to 4 (e.g. 
+            coefficients 1-4)</li>
+<li>  bandsEnergy():  Energy of a frequency interval within the 64 bins of the FFT 
+            of each window.</li>
+</ul>
+
+<p>This analysis specified 2 arguments; the two vectors:</p>
+
+<ul>
+<li>  angle():        Angle between two vectors.</li>
+</ul>
+
+<p>See the documention provided with the data set for additional detail.</p>
+
+<h3>Data Processing Steps Performed in this Study</h3>
+
+<h4>Part 1: Merging the subject index, activity index, training and test sets.</h4>
+
+<pre><code>A. Read and merge data
+    1. Read and combine (rbind) test and train subject IDs into one column named &quot;subjectid&quot;. Convert to a factor.
+    2. Read and combine (rbind) test and train activity IDs into another column named &quot;activityid&quot;.  Convert to a factor. Convert integer activity ids to their descriptive names.
+    3. Read and combine (rbind) test and train numeric data.  There are 561 columns (features) in this data.
+    4. Read the feature names from file and make these names the titles of the numeric columns.
+
+B. Save merged data. I have chosen to save this combined data set, even though this is not required for the assignment.
+</code></pre>
+
+<h4>Part 2: Extracts measurements of mean and SD.</h4>
+
+<pre><code>A. Subset to only subject, activity and data columns that are mean (column name contains &quot;mean()&quot;) or standard deviation column name contains &quot;std()&quot;).
+B. Modify column names to provide appropriate column headings.
+</code></pre>
+
+<h4>Part 3: Create tidy data set of averages and save as .txt file</h4>
+
+<pre><code>A. 
+B. Created tidyDF.txt as tab-delimited file
+</code></pre>
+
+<h3>Details of computing platform</h3>
+
+<p>platform       x86_64-apple-darwin10.8.0<br/>
+arch           x86_64<br/>
+os             darwin10.8.0<br/>
+system         x86_64, darwin10.8.0<br/>
+status<br/>
+major          3<br/>
+minor          0.3<br/>
+year           2014<br/>
+month          03<br/>
+day            06<br/>
+svn rev        65126<br/>
+language       R<br/>
+version.string R version 3.0.3 (2014-03-06)
+nickname       Warm Puppy                  </p>
+
+</body>
+
+</html>
+

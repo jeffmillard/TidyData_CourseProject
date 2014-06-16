@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>Code Book for Tidy Dataset - Human Activity Recognition Using Smartphones</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<h1>Code Book for Tidy Dataset - Human Activity Recognition Using Smartphones</h1>
+
+<p>Version 1.0</p>
+
+<p>Jeffrey R. Millard</p>
+
+<p>May 2014</p>
+
+<h2>Study Design</h2>
+
+<p>The objective of this data analysis (the &ldquo;present study&rdquo;) was to present a &ldquo;tidy&rdquo; summary of data previously obtained by other researchers (the &ldquo;original study&rdquo;) for human activity recognition using smartphone accelerometer and gyroscopic measurements.</p>
+
+<p>This tidy summary is generated in the R script called &ldquo;run_analysis.R&rdquo;, which does the following. </p>
+
+<pre><code>1. Merges the original study training and the test sets to create one data set.
+2. Subsets the  original study to __only__ the measurements on the mean and standard deviation for each measurement. 
+3. Replaces the activity IDs (1 through 6) with corresponding names (e.g., &quot;Walking&quot;)
+4. Labels the columns of the original data set with descriptive names (e.g., &quot;timeBodyAccelerometerMeanX&quot; to donate the mean on the x axis of the time domain data for body motion recorded by the accelerometer). 
+5. Creates a second, independent tidy data set with the average of each variable for each activity and each subject. 
+</code></pre>
+
+<h3>Original Data</h3>
+
+<p>The reference for the original study is:</p>
+
+<p>Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine. International Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain. Dec 2012</p>
+
+<p>The data files were downloaded as a zip archive from the URL: </p>
+
+<p><a href="https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip">https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip</a> </p>
+
+<p>in May of 2014. This zip file is included in the code repository.  See README.md for details regarding the code repository contents and the contents of the original study data zip archive.</p>
+
+<p>The original study had 30 test subjects, who engaged in 6 activities: Walking, Walking up stairs, Walking down stairs, Sitting, Standing, Laying.  Note, the original researchers named the 2nd and 3rd activities as &ldquo;WALKING UPSTAIRS&rdquo; and &ldquo;WALKING DOWNSTAIRS&rdquo;.  For the present study, I have interpreted that as walking up or down the stairs, respectively, and not simply walking on different floors of a building.</p>
+
+<p>The original study subjects had Samsung Galaxy SII smartphones on their waists. 3-axial linear acceleration and 3-axial angular velocity were recorded at a constant rate of 50Hz.  Thus, the original study data were recorded in the time domain.</p>
+
+<p>The columns of the original study, merged into a single data set but no other processing, can be summarized as follows:</p>
+
+<table><thead>
+<tr>
+<th>Column(s)</th>
+<th>Description</th>
+<th>Class/Type</th>
+<th>Range</th>
+<th>Units</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Subject ID</td>
+<td>Integer</td>
+<td>1 to 30</td>
+<td>none, index</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Activity ID</td>
+<td>Integer</td>
+<td>1 to 6</td>
+<td>none, index</td>
+</tr>
+<tr>
+<td>3-563</td>
+<td>Measurement Data</td>
+<td>Numeric</td>
+<td>-1 to 1</td>
+<td>none, normalized to +/-1</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li>Subject ID came from files labeled &ldquo;subject&rdquo;</li>
+<li>Activity ID came from files labeled &ldquo;y&rdquo;</li>
+<li>Measurement Data came from files labeled &ldquo;X&rdquo;</li>
+</ul>
+
+<p>In the run_analysis.R script, Activity ID integers were replaced with description names and converted to factors, and the entire combined data set was given descriptive column names, resulting in:</p>
+
+<table><thead>
+<tr>
+<th>Column(s)</th>
+<th>Column Name</th>
+<th>Class/Type</th>
+<th>Range</th>
+<th>Units</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>subjectid</td>
+<td>Integer Factor</td>
+<td>1 to 30</td>
+<td>none, index</td>
+</tr>
+<tr>
+<td>2</td>
+<td>activityid</td>
+<td>Character Factor</td>
+<td>see note 1</td>
+<td>none, index</td>
+</tr>
+<tr>
+<td>3-563</td>
+<td>see note 2</td>
+<td>Numeric</td>
+<td>-1 to 1</td>
+<td>none, normalized to +/-1</td>
+</tr>
+</tbody></table>
+
+<ol>
+<li>Note 1: activityid was one of &ldquo;Walking, Walking up stairs, Walking down stairs, Sitting, Standing, Laying&rdquo;.</li>
+<li>Note 2: Due to length of this list, it has been presented at the end of this file.</li>
+</ol>
+
+<h3>Description of Present Study</h3>
+
+<p>In the present study, only mean and standard deviation data from the original study were considered. What was meant in particular by &ldquo;mean data&rdquo; was open to interpretation.  My chosen list of this subset is included below, in &ldquo;Code Book&rdquo;.</p>
+
+<h2>Code Book</h2>
+
+<table><thead>
+<tr>
+<th>Column(s)</th>
+<th>Description</th>
+<th>Class/Type</th>
+<th>Range</th>
+<th>Units</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Subject ID</td>
+<td>Integer</td>
+<td>1 to 30</td>
+<td>none, index</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Activity ID</td>
+<td>Factor</td>
+<td>see lis</td>
+<td>none, index</td>
+</tr>
+<tr>
+<td>3-50</td>
+<td>Mean/SD Data</td>
+<td>Numeric</td>
+<td>-1 to 1</td>
+<td>none, normalized to +/-1</td>
+</tr>
+</tbody></table>
+
+<p>In selecting the data to include in the tidy data set, columns of the original data that had the &ldquo;mean()&rdquo; or &ldquo;std()&rdquo; designation were used.  Note, this is not all columns where the name included the word &ldquo;mean&rdquo;, but it was my opinion that only the ones with mean() and std() should be included.</p>
+
+<p>####Data Source Reference:  </p>
+
+<pre><code>Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. 
+Reyes-Ortiz. Human Activity Recognition on Smartphones using a Multiclass 
+Hardware-Friendly Support Vector Machine. International Workshop of 
+Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain. Dec 2012
+</code></pre>
+
+</body>
+
+</html>
+
